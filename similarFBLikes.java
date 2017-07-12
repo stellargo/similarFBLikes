@@ -10,15 +10,19 @@ public class similarFBLikes {
 	public static void main(String[] args) throws IOException {
 		// TODO Auto-generated method stub
 		
+		//SCANNER CREATED
 		Scanner s = new Scanner(System.in);
 		
+		//TAKE INPUT FROM USER
 		System.out.println("Enter first person's Facebook Username");
 		String firstlink = s.next();
 		
 		System.out.println("Enter second person's Facebook Username");
 		String secondlink = s.next();
 		
-		//Find interests of first person
+		//FIND INTERESTS OF FIRST PERSON
+
+		//fetching html from first profile using jsoup
 		Document doc = Jsoup.connect("https://www.facebook.com/"+firstlink).get();
 		Elements links = doc.select("a[href]");
 		String[] strs = new String[links.size()];
@@ -35,7 +39,9 @@ public class similarFBLikes {
 			}
 		} 
 		
-		//Find interests of second person
+		//FIND INTERESTS OF SECOND PERSON
+
+		//fetching html from second profile using jsoup
 		Document doc2 = Jsoup.connect("https://www.facebook.com/"+secondlink).get();
 		Elements links2 = doc2.select("a[href]");
 		String[] strs2 = new String[links2.size()];
